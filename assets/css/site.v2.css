@@ -244,3 +244,72 @@ p{margin:0 0 1em}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.rv{opacity:1;transform:none;transition:none}.carte,.carte .ph img{transition:none}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ===== V2 : illustrations et mouvement ===== */
+.arche .rond{position:absolute;border-radius:50%;overflow:hidden;border:6px solid var(--blanc);box-shadow:0 24px 40px -24px rgba(58,36,49,.55);width:34%;aspect-ratio:1}
+.arche .rond img{width:100%;height:100%;object-fit:cover}
+.arche .r1{left:-18%;bottom:14%;animation:flotte 7s ease-in-out infinite}
+.arche .r2{right:-10%;bottom:-6%;width:26%;animation:flotte 8s ease-in-out -3s infinite}
+.arche .branche{position:absolute;left:-30%;top:-6%;width:46%;color:var(--rose-vif);z-index:-1}
+@keyframes flotte{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.branche .d{stroke-dasharray:1;stroke-dashoffset:1;animation:trace 2.4s cubic-bezier(.4,0,.2,1) .3s forwards}
+.branche .d:nth-child(2){animation-delay:.9s}.branche .d:nth-child(3){animation-delay:1.1s}.branche .d:nth-child(4){animation-delay:1.3s}.branche .d:nth-child(5){animation-delay:1.5s}.branche .d:nth-child(6){animation-delay:1.7s}
+@keyframes trace{to{stroke-dashoffset:0}}
+.hero .arche{isolation:isolate}
+.hero .arche .ph{animation:monte 1.1s cubic-bezier(.2,.8,.2,1) both}
+.arche .badge{animation:monte .9s cubic-bezier(.2,.8,.2,1) .9s both}
+@keyframes monte{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.titre-anim span{display:inline-block;animation:monte .8s cubic-bezier(.2,.8,.2,1) both}
+.titre-anim span:nth-child(1){animation-delay:.05s}.titre-anim span:nth-child(2){animation-delay:.12s}.titre-anim span:nth-child(3){animation-delay:.19s}.titre-anim span:nth-child(4){animation-delay:.26s}.titre-anim span:nth-child(5){animation-delay:.33s}.titre-anim span:nth-child(6){animation-delay:.4s}.titre-anim span:nth-child(7){animation-delay:.47s}.titre-anim span:nth-child(8){animation-delay:.54s}
+.hero .lead,.hero .ctas,.hero .kicker{animation:monte .9s cubic-bezier(.2,.8,.2,1) .5s both}
+.hero .ctas{animation-delay:.65s}
+@media (max-width:860px){.arche .r1{left:-10%}.arche .r2{right:-6%}.arche .branche{left:-18%;width:40%}}
+
+/* bandeau défilant */
+.bandeau{background:var(--rose);color:#fff;overflow:hidden;padding:16px 0;font-family:var(--display);font-size:clamp(20px,2.4vw,28px)}
+.bandeau .piste{display:flex;gap:28px;width:max-content;animation:defile 40s linear infinite;align-items:center}
+.bandeau i{font-style:normal;font-size:.7em;opacity:.7}
+.bandeau:hover .piste{animation-play-state:paused}
+@keyframes defile{to{transform:translateX(-50%)}}
+
+/* étapes */
+.etapes{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative}
+.etapes::before{content:"";position:absolute;top:58px;left:16%;right:16%;border-top:2px dashed var(--poudre-2);z-index:-1}
+.etape{text-align:center;padding:0 10px}
+.etape .ic{width:116px;height:116px;border-radius:50%;background:var(--poudre);display:grid;place-items:center;margin:0 auto 18px;color:var(--rose);border:6px solid var(--blanc);box-shadow:0 0 0 1px var(--ligne);transition:transform .4s,background .4s}
+.etape .ic svg{width:52px;height:52px}
+.etape:hover .ic{transform:rotate(-6deg) scale(1.05);background:var(--poudre-2)}
+.etape .num{display:inline-block;font-family:var(--display);color:var(--rose);font-size:20px;margin-bottom:4px}
+.etape h3{margin-bottom:8px}
+.etape p{color:var(--encre-2);margin:0;max-width:30ch;margin-inline:auto}
+.etape:nth-child(2){transition-delay:.12s}.etape:nth-child(3){transition-delay:.24s}
+@media (max-width:860px){.etapes{grid-template-columns:1fr;gap:36px}.etapes::before{display:none}}
+
+/* avis */
+.avis-sec{position:relative}
+.avi{position:relative;overflow:hidden}
+.avi::before{content:"“";position:absolute;right:18px;top:-18px;font-family:var(--display);font-size:150px;line-height:1;color:var(--poudre-2)}
+.avi>*{position:relative}
+
+/* montagnes de la zone */
+.zone-sec{position:relative;padding-bottom:clamp(120px,14vw,190px);overflow:hidden}
+.zone-sec .montagnes{position:absolute;left:0;right:0;bottom:0;width:100%;height:clamp(90px,12vw,170px);color:#C9D6DE}
+
+/* en-têtes de page illustrés */
+.phead{position:relative;overflow:hidden}
+.phead .branche{position:absolute;right:max(16px,calc((100vw - 1160px)/2 - 20px));bottom:-20px;width:clamp(120px,17vw,220px);color:var(--rose-vif);opacity:.8}
+.phead .wrap{position:relative}
+
+/* photos des catégories */
+.menu-head{justify-content:flex-start;align-items:center;flex-wrap:nowrap}
+.mh-img{width:112px;height:112px;border-radius:50%;object-fit:cover;flex:none;border:5px solid var(--blanc);box-shadow:0 0 0 1px var(--ligne),0 20px 30px -20px rgba(58,36,49,.5)}
+@media (max-width:560px){.menu-head{flex-wrap:wrap}.mh-img{width:84px;height:84px}}
+
+/* cartes : apparition échelonnée */
+.cartes .carte:nth-child(2){transition-delay:.1s}.cartes .carte:nth-child(3){transition-delay:.2s}
+.carte.rv.in{transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+
+@media (prefers-reduced-motion:reduce){
+  .arche .rond,.bandeau .piste,.titre-anim span,.hero .arche .ph,.arche .badge,.hero .lead,.hero .ctas,.hero .kicker{animation:none!important}
+  .branche .d{stroke-dashoffset:0;animation:none}
+}
