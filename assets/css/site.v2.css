@@ -44,12 +44,12 @@ p{margin:0 0 1em}
 .logo span{font-family:var(--display);font-size:22px;line-height:1.05}
 .logo small{display:block;font-family:var(--texte);font-size:12px;letter-spacing:.04em;color:var(--rose)}
 .nav{display:flex;gap:26px}
-.nav a{color:var(--encre);text-decoration:none;font-size:15.5px;font-weight:500;padding:6px 0;border-bottom:1.5px solid transparent}
+.nav a{white-space:nowrap;color:var(--encre);text-decoration:none;font-size:15.5px;font-weight:500;padding:6px 0;border-bottom:1.5px solid transparent}
 .nav a:hover,.nav a[aria-current]{border-color:var(--rose)}
-.top .btn{min-height:44px;padding:0 20px;font-size:15px}
+.top .btn{white-space:nowrap;min-height:44px;padding:0 20px;font-size:15px}
 .burger{display:none;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--ligne);background:#fff;align-items:center;justify-content:center;cursor:pointer;color:var(--encre)}
 .burger svg{width:22px;height:22px}
-@media (max-width:980px){
+@media (max-width:1180px){
   .nav{position:fixed;inset:78px 0 auto 0;flex-direction:column;gap:0;background:var(--blanc);padding:8px 16px 20px;border-bottom:1px solid var(--ligne);box-shadow:0 30px 40px -30px rgba(58,36,49,.35);transform:translateY(-12px);opacity:0;visibility:hidden;transition:.25s}
   .nav.open{transform:none;opacity:1;visibility:visible}
   .nav a{padding:14px 4px;border-bottom:1px solid var(--ligne);font-size:17px}
@@ -313,3 +313,62 @@ p{margin:0 0 1em}
   .arche .rond,.bandeau .piste,.titre-anim span,.hero .arche .ph,.arche .badge,.hero .lead,.hero .ctas,.hero .kicker{animation:none!important}
   .branche .d{stroke-dashoffset:0;animation:none}
 }
+
+/* ===== V2b : illustrations des pages + bons cadeaux ===== */
+.ill{display:grid;place-items:center;width:84px;height:84px;border-radius:50%;background:var(--poudre);color:var(--rose);margin-bottom:16px}
+.ill svg{width:54px;height:54px}
+.valeur .ill{transition:transform .4s}
+.valeur:hover .ill{transform:rotate(-8deg)}
+.mh-ill{display:grid;place-items:center;width:112px;height:112px;border-radius:50%;background:var(--poudre);color:var(--rose);flex:none;border:5px solid var(--blanc);box-shadow:0 0 0 1px var(--ligne)}
+.mh-ill svg{width:70px;height:70px}
+@media (max-width:560px){.mh-ill{width:84px;height:84px}.mh-ill svg{width:52px;height:52px}}
+.bon .ill{margin:0 auto 4px}
+
+/* en-tête de page avec photo */
+.phead.a-photo .wrap{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.ph-side{position:relative;width:clamp(200px,24vw,300px)}
+.ph-rond{aspect-ratio:1;border-radius:50%;overflow:hidden;border:8px solid var(--blanc);box-shadow:0 30px 50px -34px rgba(58,36,49,.6);animation:monte 1s cubic-bezier(.2,.8,.2,1) both}
+.ph-rond img{width:100%;height:100%;object-fit:cover}
+.ph-pic{position:absolute;left:-26px;bottom:6px;width:92px;height:92px;border-radius:50%;background:#fff;color:var(--rose);display:grid;place-items:center;box-shadow:0 16px 30px -18px rgba(58,36,49,.6);animation:flotte 7s ease-in-out infinite}
+.ph-pic svg{width:58px;height:58px}
+.phead.a-photo .branche{display:none}
+@media (max-width:860px){.phead.a-photo .wrap{grid-template-columns:1fr}.ph-side{width:180px;margin-top:8px}.phead.a-photo .branche{display:none}}
+
+/* conseils : illustration par article */
+.article{max-width:920px;display:grid;grid-template-columns:150px 1fr;gap:clamp(20px,4vw,48px);align-items:start}
+.art-ill{position:sticky;top:110px;display:grid;place-items:center;width:150px;height:150px;border-radius:50%;background:var(--poudre);color:var(--rose)}
+.art-ill svg{width:96px;height:96px}
+@media (max-width:720px){.article{grid-template-columns:1fr}.art-ill{position:static;width:110px;height:110px}.art-ill svg{width:70px;height:70px}}
+
+/* contact */
+.coord-ill{display:flex;gap:16px;align-items:center;background:var(--poudre);border-radius:var(--r);padding:18px 20px}
+.coord-ill .ill{margin:0;width:76px;height:76px;background:#fff;flex:none}
+.coord-ill .ill svg{width:48px;height:48px}
+.coord-ill p{margin:0;font-size:15.5px;color:var(--encre-2)}
+.coord-ill b{display:block;color:var(--encre);font-size:17px}
+
+/* bons cadeaux mis en avant */
+.nav-cadeau{display:inline-flex;align-items:center;gap:6px;color:var(--rose)!important;font-weight:600!important}
+.nav-cadeau svg{width:17px;height:17px}
+.cadeau-sec{background:linear-gradient(180deg,var(--blanc) 0%,var(--poudre) 100%)}
+.cadeau{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:center}
+.cadeau-ill{position:relative;display:grid;place-items:center;aspect-ratio:1;max-width:440px;width:100%;justify-self:center;border-radius:50%;background:radial-gradient(circle at 50% 55%,#fff 0%,var(--poudre-2) 70%)}
+.cadeau-ill.petit{max-width:200px;flex:none}
+.paquet{width:82%;overflow:visible}
+.paquet .couvercle{transform-origin:130px 126px;animation:couvercle 4.5s ease-in-out infinite}
+.paquet .etiquette{transform-origin:150px 176px;animation:balance 3.2s ease-in-out infinite}
+.paquet .brille path{transform-box:fill-box;transform-origin:center;animation:brille 2.4s ease-in-out infinite}
+.paquet .brille path:nth-child(2){animation-delay:.8s}.paquet .brille path:nth-child(3){animation-delay:1.6s}
+@keyframes couvercle{0%,70%,100%{transform:none}78%{transform:translateY(-10px) rotate(-4deg)}86%{transform:translateY(-4px) rotate(2deg)}}
+@keyframes balance{0%,100%{transform:rotate(0)}50%{transform:rotate(5deg)}}
+@keyframes brille{0%,100%{transform:scale(.6);opacity:.4}50%{transform:scale(1.15);opacity:1}}
+.montants{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.montants a{background:#fff;border:1.5px dashed var(--rose-vif);border-radius:18px;padding:16px 12px;text-align:center;text-decoration:none;color:var(--encre);transition:transform .3s,background .3s}
+.montants a:hover{transform:translateY(-3px);background:var(--poudre)}
+.montants b{display:block;font-family:var(--display);font-weight:400;font-size:34px;color:var(--rose);line-height:1.1}
+.montants span{font-size:14px;color:var(--encre-2)}
+.bons-head{display:flex;gap:clamp(20px,4vw,48px);align-items:center;margin-bottom:44px}
+@media (max-width:860px){.cadeau{grid-template-columns:1fr}.cadeau-ill{max-width:300px}.bons-head{flex-direction:column;align-items:flex-start}.cadeau-ill.petit{max-width:160px;justify-self:start}}
+@media (max-width:420px){.montants{grid-template-columns:1fr}}
+@media (max-width:1180px){.nav-cadeau{border-bottom:1px solid var(--ligne)!important}}
+@media (prefers-reduced-motion:reduce){.paquet *,.ph-rond,.ph-pic{animation:none!important}}
