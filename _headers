@@ -1,6 +1,8 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 /*
+  Strict-Transport-Security: max-age=31536000
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
   Content-Security-Policy: frame-ancestors 'self' https://fenix-services.fr https://www.fenix-services.fr https://fenix-services-git.pages.dev
